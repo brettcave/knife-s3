@@ -1,3 +1,5 @@
+*.iml
+atlassian-ide-plugin.xml
 *.gem
 *.rbc
 .bundle
