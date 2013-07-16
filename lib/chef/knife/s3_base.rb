@@ -12,7 +12,7 @@
 # limitations under the License.
 #
 
-# s3_base.rb based on cfn_base.rb by Neil Turner, which can be found at https://github.com/neillturner/knife-cfn
+# s3_base.rb based on cfn_base.rb by Neill Turner, which can be found at https://github.com/neillturner/knife-cfn
 
 require 'chef/knife'
 

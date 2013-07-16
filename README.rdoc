@@ -6,7 +6,7 @@ This is a Knife plugin for AWS S3. The plugin gives knife the ability to list, u
 if using the Knife CFN plugin, and you want to reference an S3-hosted template, this plugin would allow you to upload to
 S3 before using CFN.
 
-Some base functionality was derived from Neil Turner's knife-cfn plugin:  https://github.com/neillturner/knife-cfn
+Some code was pillaged from Neill Turner's knife-cfn plugin:  https://github.com/neillturner/knife-cfn
 
 = INSTALLATION:
 
