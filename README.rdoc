@@ -45,16 +45,16 @@ All subcommands require <tt>--bucket</tt> (<tt>-b</tt>).
 == knife s3 list
 
 Lists an S3 bucket.
-  - Optional: <tt>--prefix</tt> (<tt>-p</tt>).
+- Optional: <tt>--prefix</tt> (<tt>-p</tt>).
 
 == knife s3 download
 
 Downloads from an S3 bucket.
-  - Required: <tt>--remote</tt> (<tt>-r</tt>).
-  - Optional, but recommended: <tt>--file</tt> (<tt>-f</tt>)
+- Required: <tt>--remote</tt> (<tt>-r</tt>).
+- Optional, but recommended: <tt>--file</tt> (<tt>-f</tt>)
 
 == knife s3 upload
 
 Uploads a file to an S3 bucket.
-  - Required: <tt>--file</tt> (<tt>-f</tt>)
-  - Optional: <tt>--remote</tt> (<tt>-r</tt>)
+- Required: <tt>--file</tt> (<tt>-f</tt>)
+- Optional: <tt>--remote</tt> (<tt>-r</tt>)
