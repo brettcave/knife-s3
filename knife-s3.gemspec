@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/brettcave/knife-s3'
   s.files = Dir["lib/**/*"]
   s.rubygems_version = "1.6.2"
+  s.license = "Apache 2.0"
   s.add_dependency "fog", "~> 1.3"
   s.add_dependency "chef", "~> 11"
 end
