@@ -15,27 +15,39 @@ class Chef
 
       banner "knife s3 list <bucket name>"
 
+      option :bucket_name,
+          :short => "-b BUCKET",
+          :long => "--bucket BUCKET",
+          :description => "Sets bucket name"
+
+      option :prefix,
+          :short  => "-p PREFIX",
+          :long   => "--prefix PREFIX",
+          :description => "A prefix to search within (path)"
+
       def run
         $stdout.sync = true
 
         validate!
 
-        bucket_name = @name_args[0]
-        prefix = @name_args[1]
-
-        if bucket_name.nil?
+        if config[:bucket_name]
+          puts "Listing bucket " + config[:bucket_name]
+        else
           puts "Please supply a bucket name"
           exit 1
         end
 
+        if config[:prefix]
+          puts "Filtering by prefix " + config[:prefix]
+        end
 
         begin
-          if prefix.nil?
-            connection.directories.get(bucket_name).files.map do |file|
+          if config[:prefix].nil?
+            connection.directories.get(config[:bucket_name]).files.map do |file|
               puts file.key
             end
           else
-            connection.directories.get(bucket_name, prefix: prefix).files.map do |file|
+            connection.directories.get(config[:bucket_name], prefix: config[:prefix]).files.map do |file|
               puts file.key
             end
           end
