@@ -13,12 +13,12 @@ class Chef
         Chef::Knife::Bootstrap.load_deps
       end
 
-      banner "knife s3 list <bucket name>"
+      banner "knife s3 list -b <bucket name> [-p <prefix>]"
 
-      option :bucket_name,
-          :short => "-b BUCKET",
-          :long => "--bucket BUCKET",
-          :description => "Sets bucket name"
+      option :bucket,
+          :short  => "-b BUCKET",
+          :long   => "--bucket BUCKET",
+          :description => "Specify the S3 bucket"
 
       option :prefix,
           :short  => "-p PREFIX",
@@ -30,24 +30,24 @@ class Chef
 
         validate!
 
-        if config[:bucket_name]
-          puts "Listing bucket " + config[:bucket_name]
+        if config[:bucket]
+          puts "Listing bucket " + config[:bucket]
         else
-          puts "Please supply a bucket name"
+          puts "No bucket specified"
           exit 1
         end
 
         if config[:prefix]
-          puts "Filtering by prefix " + config[:prefix]
+          puts "Listing with prefix " + config[:prefix]
         end
 
         begin
           if config[:prefix].nil?
-            connection.directories.get(config[:bucket_name]).files.map do |file|
+            connection.directories.get(config[:bucket]).files.map do |file|
               puts file.key
             end
           else
-            connection.directories.get(config[:bucket_name], prefix: config[:prefix]).files.map do |file|
+            connection.directories.get(config[:bucket], prefix: config[:prefix]).files.map do |file|
               puts file.key
             end
           end
