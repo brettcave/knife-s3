@@ -15,7 +15,9 @@ against chef 11.4.4
 
     gem install chef
 
-This plugin currently isn't registered as a Ruby Gem, so you will need to build it yourself:
+This plugin is available as a gem:
+
+If you want to build it yourself from source, you can do so with gem:
 
     git clone https://github.com/brettcave/knife-s3.git knife-s3
     cd knife-s3
