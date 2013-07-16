@@ -1,0 +1,52 @@
+= Knife S3
+
+= DESCRIPTION:
+
+This is a Knife plugin for AWS S3. The plugin gives knife the ability to list, upload and download to / from S3. For example,
+if using the Knife CFN plugin, and you want to reference an S3-hosted template, this plugin would allow you to upload to
+S3 before using CFN.
+
+Some base functionality was derived from Neil Turner's knife-cfn plugin:  https://github.com/neillturner/knife-cfn
+
+= INSTALLATION:
+
+Be sure you are running the latest version Chef. Versions earlier than 0.10.0 don't support plugins. This plugin was developed
+against chef 11.4.4
+
+    gem install chef
+
+This plugin currently isn't registered as a Ruby Gem, so you will need to build it yourself:
+
+    git clone https://github.com/brettcave/knife-s3.git knife-s3
+    cd knife-s3
+    gem build knife-s3.gemspec
+
+This will build the gem in the project directory. From there, it can be installed locally:
+
+    gem install knife-s3-0.0.1.gem
+
+= CONFIGURATION:
+
+In order to authenticate with the AWS API, you need to configure knife with your AWS Access Key ID and Secret Access Key. This
+can be done by adding the following to your <tt>knife.rb</tt>:
+
+    knife[:aws_access_key_id] = "ACCESSKEY"
+    knife[:aws_secret_access_key] = "supersecret"
+
+The ID and secret key can be passed with the <tt>--aws-access-key-id</tt> and <tt>--aws-secret-access-key</tt> respectively.
+
+= SUBCOMMANDS
+
+Use <tt>knife s3 --help</tt> to get a full list of options to use.
+
+== knife s3 list
+
+Lists an S3 bucket. Requires the <tt>--bucket</tt> parameter.
+
+== knife s3 download
+
+Downloads from an S3 bucket (via the API).
+
+== knife s3 upload
+
+Uploads a file to an S3 bucket.
