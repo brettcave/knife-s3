@@ -13,7 +13,9 @@ class Chef
         Chef::Knife::Bootstrap.load_deps
       end
 
-      banner "knife s3 list -b <bucket name> [-p <prefix>]"
+      banner "knife s3 list BUCKET [-p <prefix>]"
+
+      attr_reader :bucket
 
       option :bucket,
           :short  => "-b BUCKET",
@@ -30,27 +32,31 @@ class Chef
 
         validate!
 
-        if config[:bucket]
-          puts "Listing bucket " + config[:bucket]
+        if @name_args.empty?
+          if config[:bucket]
+            @bucket = config[:bucket]
+          else
+            ui.error("No bucket specified. Exiting")
+            exit 1
+          end
         else
-          puts "No bucket specified"
-          exit 1
+          @bucket = @name_args.first
         end
 
-        if config[:prefix]
-          puts "Listing with prefix " + config[:prefix]
-        end
+        ui.info("Listing #{@bucket}") unless config[:prefix]
+        ui.info("Listing #{@bucket}#{config[:prefix]}") if config[:prefix]
 
         begin
           if config[:prefix].nil?
-            connection.directories.get(config[:bucket]).files.map do |file|
-              puts file.key
-            end
+            @bucket_list = connection.directories.get(@bucket)
           else
-            connection.directories.get(config[:bucket], prefix: config[:prefix]).files.map do |file|
-              puts file.key
-            end
+            @bucket_list = connection.directories.get(@bucket, prefix: config[:prefix])
           end
+
+          @bucket_list.files.map do |file|
+            puts file.key
+          end
+
         end
 
 

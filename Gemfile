@@ -1,0 +1,11 @@
+source 'http://rubygems.org'
+gemspec
+
+group :development do
+  gem 'rspec', '~> 2.14'
+end
+
+group :test do
+	gem 'rake', '~> 10.1'
+	gem 'sdoc', '~> 0.3'
+end
