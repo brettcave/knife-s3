@@ -40,9 +40,9 @@ The ID and secret key can be passed with the <tt>--aws-access-key-id</tt> and <t
 = SUBCOMMANDS
 
 Use <tt>knife s3 --help</tt> to get a full list of options to use.
-All subcommands require <tt>--bucket</tt> (<tt>-b</tt>).
+All subcommands require a <tt>bucket</tt> (<tt>-b</tt>) parameter
 
-== knife s3 list
+== knife s3 list BUCKET
 
 Lists an S3 bucket.
 - Optional: <tt>--prefix</tt> (<tt>-p</tt>).
@@ -58,3 +58,5 @@ Downloads from an S3 bucket.
 Uploads a file to an S3 bucket.
 - Required: <tt>--file</tt> (<tt>-f</tt>)
 - Optional: <tt>--remote</tt> (<tt>-r</tt>)
+
+== Build Status {<img src="https://travis-ci.org/brettcave/knife-s3.svg?branch=master" />}[https://travis-ci.org/brettcave/knife-s3]
