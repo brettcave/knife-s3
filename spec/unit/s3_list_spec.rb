@@ -32,6 +32,7 @@ describe Chef::Knife::S3List do
       @knife_s3_list.run
     end
 
+
     describe "when --prefix is passed" do
       it "should list bucket contents under prefix only" do
         @s3_directories.should_receive(:get).with('some_bucket',{:prefix=>"PREFIX"}).and_return(@bucket_list)
