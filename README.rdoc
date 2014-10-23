@@ -1,4 +1,4 @@
-= Knife S3
+= Knife S3     {<img src="https://travis-ci.org/brettcave/knife-s3.svg?branch=master" />}[https://travis-ci.org/brettcave/knife-s3]
 
 = DESCRIPTION:
 
@@ -58,5 +58,3 @@ Downloads from an S3 bucket.
 Uploads a file to an S3 bucket.
 - Required: <tt>--file</tt> (<tt>-f</tt>)
 - Optional: <tt>--remote</tt> (<tt>-r</tt>)
-
-== Build Status {<img src="https://travis-ci.org/brettcave/knife-s3.svg?branch=master" />}[https://travis-ci.org/brettcave/knife-s3]
