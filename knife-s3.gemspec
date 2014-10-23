@@ -14,5 +14,4 @@ Gem::Specification.new do |s|
   s.license = "Apache 2.0"
   s.add_dependency "fog", "~> 1.3"
   s.add_dependency "chef", "~> 11"
-  s.add_development_dependency "rspec", "~> 2.14"
 end
